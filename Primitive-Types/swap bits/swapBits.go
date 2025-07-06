@@ -13,15 +13,16 @@ func SwapBits(x uint64, i, j int) uint64 {
 
     if ((x >> i) & 1) != ((x >> j) & 1) {
         bitMask := (uint64(1) << i) | (uint64(1) << j)
+	fmt.Printf("bit mask is : %064b\n",bitMask)
         x ^= bitMask
     }
     return x
 }
 
 func main() {
-    x := uint64(0xABBFECCEFBABCEFF)
+    x := uint64(0xABBFECCEFBABCE0C)
     fmt.Printf("x in binary :%064b\n",x)
-    result := SwapBits(x, 62, 63)
+    result := SwapBits(x, 2, 1)
     fmt.Printf("after swap x becomes: %064b\n", result)
 }
 
